@@ -25,7 +25,7 @@ python tools/build_wilds_mod.py --rom your-game.cci --out wilds-damage-mod --zip
 ```
 pkg install python git
 pip install zstandard
-git clone https://github.com/your-username/mh4u-wilds-damage
+git clone https://github.com/Kesurage/m4-mods
 cd mh4u-wilds-damage
 python tools/build_wilds_mod.py --rom /sdcard/Download/your-game.cci --out wilds-damage-mod --zip
 ```
