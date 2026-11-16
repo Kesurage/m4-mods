@@ -1,0 +1,42 @@
+{
+ "description": "Which product this checkout builds (core/app/edition.py): MH4U Wilds Damage Numbers, a focused fork of popzol and BlitzWOLF's Heavenfall Beta (GPL-3.0-or-later) that ships only its Damage Numbers feature, tuned to look like Monster Hunter Wilds. Replace repository with your own GitHub user/repo when you publish yours.",
+ "name": "MH4U Wilds Damage Numbers",
+ "window_title": "MH4U Wilds Damage Numbers: the Wilds damage numbers for Monster Hunter 4 Ultimate",
+ "app_name": "MH4UWildsDamage",
+ "cli_name": "mh4u-wilds-damage",
+ "zip_name": "MH4UWildsDamage-windows.zip",
+ "app_user_model_id": "MH4UWildsDamage.MH4U.GUI",
+ "pages": [
+  "install",
+  "options"
+ ],
+ "platforms": [
+  "emulator"
+ ],
+ "tools_language": "en",
+ "user_folder": ".mh4u_wilds_damage",
+ "marker": "wilds_damage_mod.json",
+ "repository": "your-username/mh4u-wilds-damage",
+ "updater_name": "MH4UWildsDamage-update",
+ "legacy_user_folders": [],
+ "legacy_markers": [],
+ "legacy_build_markers": [],
+ "xx_optional": true,
+ "console_title": {
+  "title_ids": {
+   "eur": "0004000006969300",
+   "usa": "0004000006969400"
+  },
+  "short_name": "Heavenfall Beta",
+  "long_name": "Monster Hunter 4 Ultimate: Heavenfall Beta",
+  "publisher": "Heavenfall"
+ },
+ "console_release": {
+  "app_cia": "HeavenfallBeta-3ds.cia",
+  "app_3dsx": "HeavenfallBeta-3ds.3dsx",
+  "patch_eur": "HeavenfallBeta-3ds-EUR.hfpatch",
+  "patch_usa": "HeavenfallBeta-3ds-USA.hfpatch",
+  "patch_eur_xx": "HeavenfallBeta-3ds-EUR-XX.hfpatch",
+  "patch_usa_xx": "HeavenfallBeta-3ds-USA-XX.hfpatch"
+ }
+}
