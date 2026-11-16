@@ -90,6 +90,15 @@ the extension's crc32s are unchanged — so **the library stays valid: no rebuil
 The appended pages are the zeros the variables start as, and the exheader now declares the
 segment out to `0x131B000`.
 
+**Do not press "Back to the mods of the last start" on the error screen.** That button
+restores the mods *and the code library* of an earlier start. If it restores the library
+from the single-screen days, the next start refuses with a mismatch whose "was built from"
+crc32 is the old library's (`9D682788`, the update + single-screen code) even though the
+imported mod is correct. The way out is the same as after any mod change: gear >
+System > **Build the game code**, once, with the mod on. This is also why the asset's code
+bytes are frozen from 2026-11-16 on: fixes to the assets never touch the code the library
+was built from, so one library build is the last one this mod needs.
+
 ## One code mod at a time: this mod and jM5557's single-screen cannot compose
 
 Both mods write code into the same unused space of the game's executable (the padding
