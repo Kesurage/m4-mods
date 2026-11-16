@@ -52,6 +52,39 @@ and `romfs/<lang>/data/core_common.arc`.
   mismatch). Rebuild from the same file you gave the port; the builder prints the version
   it built for (`built from usa_update`, the USA v1.3.0 update the port runs).
 
+## The startup refusal: "the code library ... does not match ... rebuild the code library"
+
+After importing a code mod, the port refuses to start the game with the old code library
+and says exactly this, with two crc32 values:
+
+```
+[Error] Runtime: the code library .../libmh4u_code_native.so does not match ...:
+the program's code (..., crc32 71870D9F) is not the code ... was built from (..., crc32 9D682788):
+rebuild the code library from this version of the game
+```
+
+That refusal is **correct and expected** — it proves the mod loaded (the loader's lines
+above it name the mod's `exefs/code.bin` and its `exheader.bin in place of the game's`).
+The first crc32 is the code as assembled **with** the mod; the second is what the library
+on the phone was built from **before** it. The fix is the port's own step: gear >
+System > **Build the game code** ("Build on this phone"), once, and let it finish.
+
+## One code mod at a time: this mod and jM5557's single-screen cannot compose
+
+Both mods write code into the same unused space of the game's executable (the padding
+before `.rodata`, around `0xDECEF0`): this mod puts its memory-split bootstrap there, the
+single-screen mod puts its own stub. Applied together — a full `code.bin` first, then the
+other mod's `code.ips` — the ips overwrites the bootstrap, and the assembled code is
+broken (verified byte for byte: applying jM5557's ips over this mod's `code.bin` lands
+`0xDECD00+732` of its bytes exactly on this mod's stub). They also both ship their own
+`core_common.arc`, and only one of those can win.
+
+So: **turn `single-screen` off on the Mods page** (or remove it) while this mod's code is
+in the library. You lose nothing: the port has its **own** single-screen mode (gear >
+Graphics & Audio > Screen and HUD), which needs no code mod. Switching between the two
+mods later means one more library rebuild — each code mod needs the library built with
+it.
+
 ## Building from the update
 
 The builder accepts the update file directly and says so (`built from usa_update`): the
