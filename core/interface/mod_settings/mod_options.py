@@ -291,6 +291,7 @@ def patch_mod_options(code: bytes, settings: Any, available: list[str], layout: 
     layout.place(out, STUB)
     layout.place(out, DATA, options_data(settings, available))
     layout.place(out, RAW_TABLE, raw_table())
+    layout.reserve(out, *VARIABLES)     # mod_options_state lives in the extension's variables (ext_vars)
     layout.hook(out, FRAME_CALL, STUB, calls=FRAME_UPDATE)
     word = lambda value: value.to_bytes(4, "little")  # noqa: E731
     at = lambda label: layout.symbol(STUB, label)  # noqa: E731

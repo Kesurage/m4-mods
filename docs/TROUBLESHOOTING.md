@@ -69,6 +69,27 @@ The first crc32 is the code as assembled **with** the mod; the second is what th
 on the phone was built from **before** it. The fix is the port's own step: gear >
 System > **Build the game code** ("Build on this phone"), once, and let it finish.
 
+## "The game stopped: a bad guest memory access" after the library matched
+
+If the log shows the library accepted (`code library for usa_v130 …`, the mod in the load
+order, its romfs files replaced) and then the game stops with
+
+```
+mh4n: bad guest memory access: access at 0x0131xxxx (guest thread 1, lr 0x0130xxxx)
+```
+
+at an address just past `0x1308000`, the mod's assets predate the fix of 2026-11-16: that
+build's exheader declared the data segment 19 pages short of where its state variables
+live (`mod_options_state` at `0x131AD70` was the first touch — the Mod Settings page's
+options and Damage Numbers' own state sit in the extension's variables region, past the
+code). The code itself was consistent; only the memory map was declared too small.
+
+**Fix: re-download the release asset and import it again** (remove the old mod entry
+first). The updated asset keeps every byte the code library was built from — the .text and
+the extension's crc32s are unchanged — so **the library stays valid: no rebuild needed**.
+The appended pages are the zeros the variables start as, and the exheader now declares the
+segment out to `0x131B000`.
+
 ## One code mod at a time: this mod and jM5557's single-screen cannot compose
 
 Both mods write code into the same unused space of the game's executable (the padding
