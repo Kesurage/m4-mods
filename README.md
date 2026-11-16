@@ -32,6 +32,11 @@ folder and the port rebuilds its code library with it) and for Azahar / Citra.
 
 ## Install (4u-native, the short version)
 
+**No PC?** Playing the USA game with the v1.3.0 update: download
+**`mh4u-wilds-damage-usa-4u-native.zip`** from the
+[latest release](https://github.com/Kesurage/m4-mods/releases/latest) on your phone —
+that is the built mod — and go to step 2 of **docs/INSTALL-4U-NATIVE.md**.
+
 **This repository is the builder — the mod is its output.** Run the builder on your own
 game file (the decrypted `.cci`/`.3ds`/`.cia`; the update file works too):
 

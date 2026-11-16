@@ -12,7 +12,15 @@ APK, nothing on your phone is replaced. This mod is built for exactly that flow.
 * For a PC build: Python 3.10+ and `pip install zstandard`.
 * For a phone-only build: the phone's browser. No PC needed.
 
-## 1. Build the mod
+## 1. Get the mod
+
+**Easiest — download it built (no PC, no building at all):** if you play the **USA game
+with the v1.3.0 update** (the code the port runs — the overwhelmingly common case), grab
+**`mh4u-wilds-damage-usa-4u-native.zip`** from this repository's
+[latest release](https://github.com/Kesurage/m4-mods/releases/latest) in the phone's
+browser and skip to step 2. It is the built mod, for exactly that version (verified
+against the port's own published code hash). European game or another version? Build
+yours below — it reads your file and adapts.
 
 **On a PC:**
 
@@ -42,8 +50,9 @@ next to it with `--zip`.
 Either way works:
 
 * **Import the zip:** in the game, gear > **Mods & Cheats** > **Mods** > **Add a mod
-  (.zip)** — pick `mh4u-wilds-damage-<region>.zip`. The port finds the mod inside the zip,
-  even nested, and lists it on the Mods page.
+  (.zip)** — pick the zip you downloaded (`mh4u-wilds-damage-usa-4u-native.zip`, the
+  release asset) or the one a build printed (`mh4u-wilds-damage-<region>.zip`). The port
+  finds the mod inside the zip, even nested, and lists it on the Mods page.
 * **Or the mods folder beside the game:** copy the `0004000000126300` (or `...126100`)
   folder into the `mods` folder that sits beside your game file (`MH4U/mods/`). The port
   lists the mods in that folder too.
